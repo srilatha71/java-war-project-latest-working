@@ -1,16 +1,15 @@
-pipeline{
-                 agent any 
+node('node-1') {
+    stage('download') {
+     git branch: 'master', url: 'https://github.com/srilatha71/java-war-project-latest-working.git'
+}  
+        stage('build') {
+     sh 'mvn clean package'
+}
 
-                 stages {
-                               stage (" checkout my code " ) { 
-                                   steps { 
-                                               sh " git clone https://github.com/cloud-dev-user/java-war-project.git"
-                                        }
-                                     }
-                                 stage(" build my code") {
-                                   steps{
-                                            sh " cd java-war-project && mvn package" 
-                                          }
-                                     }
-                                }
-                }
+stage('ContinuousDeployment')
+    {
+        input message: 'Waiting for Approval from the DM', submitter: 'admin'
+        sh label: '', script: 'scp /var/lib/jenkins/workspace/ci-cd-pipeline/target/my-app.war ubuntu@172.31.93.244:/opt/tomcat/webapps/testenv.war'
+    }
+
+}
