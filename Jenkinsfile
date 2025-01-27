@@ -1,4 +1,4 @@
-node('node-1') {
+node{
     stage('download') {
      git branch: 'master', url: 'https://github.com/srilatha71/java-war-project-latest-working.git'
 }  
