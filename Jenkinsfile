@@ -9,7 +9,7 @@ node('node-1'){
 stage('ContinuousDeployment')
     {
         input message: 'Waiting for Approval from the DM', submitter: 'admin'
-        sh label: '', script: 'cp /opt/tomcat/jenkins/workspace/pipeline/target/my-app.war /opt/tomcat/updated/webapps/devenv.war'
+        sh label: '', script: 'cp /opt/tomcat/jenkins/workspace/multi-Branch_develop/target/my-app.war /opt/tomcat/updated/webapps/devenv.war'
     }
 
 }
