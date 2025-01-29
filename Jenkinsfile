@@ -8,7 +8,7 @@ node('node-1'){
 
 stage('ContinuousDeployment')
     {
-        input message: 'Waiting for Approval from the DM', submitter: 'admin'
+       // input message: 'Waiting for Approval from the DM', submitter: 'admin'
         sh label: '', script: 'cp /opt/tomcat/jenkins/workspace/pipeline/target/my-app.war /opt/tomcat/updated/webapps/masterenv.war'
     }
 
