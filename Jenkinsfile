@@ -3,7 +3,7 @@ node('node-1'){
      git url: 'https://github.com/srilatha71/java-war-project-latest-working.git'
 }  
         stage('build') {
-     sh 'mvn package'
+     sh 'mvn clean package'
 }
 
 stage('ContinuousDeployment')
